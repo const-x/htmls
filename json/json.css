@@ -1,0 +1,128 @@
+@charset "utf-8";
+
+.ObjectBrace {
+	color: #00AA00;
+	font-weight: bold;
+}
+
+.ObjectBraceFilted {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.ArrayBrace {
+	color: #0033FF;
+	font-weight: bold;
+}
+
+.PropertyName {
+	color: #be5d4f;
+	font-weight: bold;
+}
+
+
+.PropertyShow {
+	color: #fd0101;
+	font-weight: bold;
+}
+
+.keyValue {
+	color: #ff8000;
+	visibility: hidden;
+	font-weight: bold;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.filterValue {
+	color:#d64f44;
+	visibility: hidden;
+	font-weight: bold;
+	text-decoration:line-through;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.String {
+	color: #007777;
+}
+
+.image {
+	vertical-align: top;
+}
+
+.image img {
+	border: 1px solid #007777;
+}
+
+.href {
+	color: #007777;
+}
+
+
+.Number {
+	color: #AA00AA;
+}
+
+.Boolean {
+	color: #00AA00;
+}
+
+.Function {
+	color: #AA6633;
+	text-decoration: italic;
+}
+
+.Null {
+	color: #0000FF;
+}
+
+.Comma {
+	color: #000000;
+	font-weight: bold;
+}
+
+PRE {
+    font:1em 'andale mono', monotype, 'lucida console', monospace;
+    line-height:1.5;
+}
+
+PRE.CodeContainer {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+PRE.CodeContainer img {
+	cursor: pointer;
+	margin-bottom: -1px;
+	max-width: 300px;
+}
+
+div.Canvas {
+	font-family: Lucida Console, Georgia;
+	font-size: 13px;
+	background-color: #ECECEC;
+	color: #000000;
+	border: solid 1px #CECECE;
+}
+
+#ControlsRow {
+	border: 1px solid #ddd;
+	white-space: nowrap;
+	font-size: 16px;
+	min-width: 600px;
+	margin: 0,auto;
+	width: 100%;
+	background-color: rgba(105, 231, 141, 0.28)
+}
+
+#validate {
+	color: #FFFFFF;
+	background-color: green
+}
+
+

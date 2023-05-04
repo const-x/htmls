@@ -1,0 +1,175 @@
+
+body {
+	line-height: 1.5;
+	font-size: 75%;
+	color: #222;
+	font-family: "Helvetica Neue", "Lucida Grande", Helvetica, Arial,
+		Verdana, sans-serif;
+	margin: 1.5em 0;
+	background:url('./bg.png');
+	height:100%
+}
+
+.small {
+	font-size: .8em;
+	margin-bottom: 1.875em;
+	line-height: 1.875em;
+}
+
+.large {
+	font-size: 1.2em;
+	line-height: 2.5em;
+	margin-bottom: 1.25em;
+}
+
+.hide {
+	display: none;
+}
+
+.highlight {
+	background: #529214;
+}
+
+.added {
+	color: #060;
+}
+
+.removed {
+	color: #900;
+}
+
+.top {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+.container {
+	width: 950px;
+	margin: 0 auto;
+}
+
+.column {
+	float: left;
+	margin-right: 10px;
+}
+
+.last {
+	margin-right: 0;
+}
+
+.border {
+	padding-right: 4px;
+	margin-right: 5px;
+	border-right: 1px solid #eee;
+}
+
+.colborder {
+	padding-right: 24px;
+	margin-right: 25px;
+	border-right: 1px solid #eee;
+}
+
+.box {
+	margin-bottom: 1.5em;
+	background: #eee;
+	padding: 1.5em;
+}
+
+.clear:after,.container:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+textarea {
+	height: 200px;
+	padding: 0px;
+	width: 98%;
+}
+
+select {
+	border: 1px solid #ccc;
+	background: #f6f6f6;
+	width: 100px;
+}
+
+.error,.notice,.success {
+	margin-bottom: 1em;
+	border: 2px solid #ddd;
+	padding: .8em;
+}
+
+.error {
+	background: #FBE3E4;
+	color: #D12F19;
+	border-color: #FBC2C4;
+}
+
+.notice {
+	background: #FFF6BF;
+	color: #817134;
+	border-color: #FFD324;
+}
+
+.success {
+ 
+	background: #E6EFC2;
+	color: #529214;
+	border-color: #C6D880;
+}
+
+.error a {
+	color: #D12F19;
+}
+
+.notice a {
+	color: #817134;
+}
+
+.success a {
+	color: #529214;
+}
+
+dl dt,strong,dfn,label {
+	font-weight: 700;
+}
+
+del,.quiet {
+	color: #666;
+}
+
+input.text:focus,input.title:focus,textarea:focus,select:focus {
+	background: #fff;
+	border: 1px solid #bbb;
+}
+
+.greenBorder {
+	border: 1px solid green !important;
+}
+
+.redBorder {
+	border: 1px solid red !important;
+}
+
+.linedwrap {
+	margin-bottom: 5px;
+	background-color: #EEEEEE;
+	padding: 0;
+	width: 100%;
+}
+
+.linedwrap .codelines {
+	padding: 0;
+}
+
+.light {
+	color: #AAA;
+}
