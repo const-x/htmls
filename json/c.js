@@ -14,6 +14,19 @@ window.UnShowField = null;
 window.FilterField = null;
 window.IsCollapsible = true;
 
+
+window.onload = function () {
+	$id("json_input").value = getString("json");
+}
+
+
+function getString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return decodeURI(r[2]);
+	return null;
+}
+
 function $id(id) {
 	return document.getElementById(id);
 }
