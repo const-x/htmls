@@ -5,7 +5,7 @@ window.QuoteKeys = true;
 window.LinkKeys = false;
 window.LinkKeys = false;
 window.ShowFrist = false;
-window.NullKeys = true;
+window.NullKeys = false;
 window.ShowInLine = false;
 window.SortKeys = false;
 window.KeyField = null;
@@ -16,7 +16,12 @@ window.IsCollapsible = true;
 
 
 window.onload = function () {
-	$id("json_input").value = getString("json");
+
+	var s = getString("json");
+	if (!s) {
+		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://git2.superboss.cc/uploads/-/system/user/avatar/536/avatar.png\",\"web_url\":\"https://git2.superboss.cc/songyue\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://git2.superboss.cc/uploads/-/system/user/avatar/536/avatar.png\",\"web_url\":\"https://git2.superboss.cc/songyue\"}}]}"
+	}
+	$id("json_input").value = s;
 }
 
 
@@ -87,7 +92,7 @@ function ProcessObject(obj,indent,addComma,isArray,isPropertyContent,ignoreShowF
 			for (var i = 0; i < obj.length; i++) {
 
 				var sub = obj[i];
-				if(!sub && !window.NullKeys){
+				if(!sub && window.NullKeys){
 					continue;
 				}
 
@@ -168,7 +173,7 @@ function ProcessObject(obj,indent,addComma,isArray,isPropertyContent,ignoreShowF
 				for (var i = 0; i < keys.length; i++) {
 					var prop = keys[i];
 					var sub = obj[prop];
-					if(!sub && !window.NullKeys){
+					if(!sub && window.NullKeys){
 						continue;
 					}
 
@@ -356,7 +361,17 @@ function CollapsibleViewClicked() {
 }
 
 function AdviceViewClicked() {
-	$id("CollapsibleViewDetail").style.display = $id("adviceView").checked ? "":"none";
+	var checked = $id("adviceView").checked
+	$id("CollapsibleViewDetail").style.display = checked ? "":"none";
+	if(!checked){
+		$id("NullKeys").checked = false;
+		window.NullKeys = false;
+		$id("LinkKeys").checked = false;
+		window.LinkKeys = false;
+		$id("SortKeys").checked = false;
+		window.SortKeys = false;
+		Process();
+	}
 }
 
 function QuoteKeysClicked() {
@@ -364,7 +379,7 @@ function QuoteKeysClicked() {
 	Process();
 }
 function NullKeysClicked() {
-	window.NullKeys = !$id("NullKeys").checked;
+	window.NullKeys = $id("NullKeys").checked;
 	Process();
 }
 function LinkKeysClicked() {
