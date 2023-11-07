@@ -19,7 +19,7 @@ window.onload = function () {
 
 	var s = getString("json");
 	if (!s) {
-		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://const-x.github.io/htmls/json/JSONFormater.htm\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/JSONFormater.htm\",\"web_url\":\"https://git2.superboss.cc/songyue\"}}]}"
+		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://const-x.github.io/htmls/json/JSONFormater.htm\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://const-x.github.io/htmls/json/JSONFormater.htm\"}}]}"
 	}
 	s = decodeURIComponent(s)
 	$id("json_input").value = s;
