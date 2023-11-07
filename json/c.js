@@ -19,7 +19,7 @@ window.onload = function () {
 
 	var s = getString("json");
 	if (!s) {
-		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://git2.superboss.cc/uploads/-/system/user/avatar/536/avatar.png\",\"web_url\":\"https://git2.superboss.cc/songyue\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://git2.superboss.cc/uploads/-/system/user/avatar/536/avatar.png\",\"web_url\":\"https://git2.superboss.cc/songyue\"}}]}"
+		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://git2.superboss.cc/songyue\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://git2.superboss.cc/songyue\"}}]}"
 	}
 	$id("json_input").value = s;
 }
@@ -268,7 +268,8 @@ function handleString(obj,comma,indent,isArray) {
 		if (isUrl) {
 			var str;
 			if(endwith(content,"jpg") || endwith(content,"JPG") || endwith(content,"png") || endwith(content,"PNG") || endwith(content,"gif") || endwith(content,"GIF")
-			|| endwith(content,"jpeg") || endwith(content,"JPEG") || endwith(content,"bmp") || endwith(content,"BMP") || endwith(content,"tga") || endwith(content,"TGA")	
+			|| endwith(content,"jpeg") || endwith(content,"JPEG") || endwith(content,"bmp") || endwith(content,"BMP") || endwith(content,"tga") || endwith(content,"TGA")
+				|| endwith(content,"ico") || endwith(content,"ICO")
 			){
                 str = "<span class='image'><image src='" + content + "' /></span>";
 			}else{
