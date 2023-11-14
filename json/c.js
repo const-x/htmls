@@ -5,7 +5,7 @@ window.QuoteKeys = true;
 window.LinkKeys = false;
 window.LinkKeys = false;
 window.ShowFrist = false;
-window.NullKeys = true;
+window.NullKeys = false;
 window.ShowInLine = false;
 window.SortKeys = false;
 window.KeyField = null;
@@ -16,7 +16,13 @@ window.IsCollapsible = true;
 
 
 window.onload = function () {
-	$id("json_input").value = getString("json");
+
+	var s = getString("json");
+	if (!s) {
+		s = "{\"id\":259322,\"name\":\"books\",\"list\":[{\"id\":259321,\"name\":\"apple\",\"publisher\":null,\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://github.com/const-x/htmls/tree/master/json\"}},{\"id\":259320,\"name\":\"orange\",\"publisher\":\"AAA\",\"author\":{\"name\":\"崧岳\",\"state\":\"active\",\"avatar_url\":\"https://const-x.github.io/htmls/json/logo-s.ico\",\"web_url\":\"https://github.com/const-x/htmls/tree/master/json\"}}]}"
+	}
+	s = decodeURIComponent(s)
+	$id("json_input").value = s;
 }
 
 
@@ -87,7 +93,7 @@ function ProcessObject(obj,indent,addComma,isArray,isPropertyContent,ignoreShowF
 			for (var i = 0; i < obj.length; i++) {
 
 				var sub = obj[i];
-				if(!sub && !window.NullKeys){
+				if(!sub && window.NullKeys){
 					continue;
 				}
 
@@ -168,7 +174,7 @@ function ProcessObject(obj,indent,addComma,isArray,isPropertyContent,ignoreShowF
 				for (var i = 0; i < keys.length; i++) {
 					var prop = keys[i];
 					var sub = obj[prop];
-					if(!sub && !window.NullKeys){
+					if(!sub && window.NullKeys){
 						continue;
 					}
 
@@ -263,7 +269,8 @@ function handleString(obj,comma,indent,isArray) {
 		if (isUrl) {
 			var str;
 			if(endwith(content,"jpg") || endwith(content,"JPG") || endwith(content,"png") || endwith(content,"PNG") || endwith(content,"gif") || endwith(content,"GIF")
-			|| endwith(content,"jpeg") || endwith(content,"JPEG") || endwith(content,"bmp") || endwith(content,"BMP") || endwith(content,"tga") || endwith(content,"TGA")	
+			|| endwith(content,"jpeg") || endwith(content,"JPEG") || endwith(content,"bmp") || endwith(content,"BMP") || endwith(content,"tga") || endwith(content,"TGA")
+				|| endwith(content,"ico") || endwith(content,"ICO")
 			){
                 str = "<span class='image'><image src='" + content + "' /></span>";
 			}else{
@@ -356,7 +363,17 @@ function CollapsibleViewClicked() {
 }
 
 function AdviceViewClicked() {
-	$id("CollapsibleViewDetail").style.display = $id("adviceView").checked ? "":"none";
+	var checked = $id("adviceView").checked
+	$id("CollapsibleViewDetail").style.display = checked ? "":"none";
+	if(!checked){
+		$id("NullKeys").checked = false;
+		window.NullKeys = false;
+		$id("LinkKeys").checked = false;
+		window.LinkKeys = false;
+		$id("SortKeys").checked = false;
+		window.SortKeys = false;
+		Process();
+	}
 }
 
 function QuoteKeysClicked() {
@@ -364,7 +381,7 @@ function QuoteKeysClicked() {
 	Process();
 }
 function NullKeysClicked() {
-	window.NullKeys = !$id("NullKeys").checked;
+	window.NullKeys = $id("NullKeys").checked;
 	Process();
 }
 function LinkKeysClicked() {
