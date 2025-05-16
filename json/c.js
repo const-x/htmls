@@ -267,25 +267,36 @@ function handleString(obj,comma,indent,isArray) {
 			isUrl = true;
 		}
 		if (isUrl) {
-			var str;
-			if(endwith(content,"jpg") || endwith(content,"JPG") || endwith(content,"png") || endwith(content,"PNG") || endwith(content,"gif") || endwith(content,"GIF")
-			|| endwith(content,"jpeg") || endwith(content,"JPEG") || endwith(content,"bmp") || endwith(content,"BMP") || endwith(content,"tga") || endwith(content,"TGA")
-				|| endwith(content,"ico") || endwith(content,"ICO")
-			){
-                str = "<span class='image'><image src='" + content + "' /></span>";
-			}else{
-			    str = "<span class='href'><a target='_blank'   href='" + content + "'>\"" + content + "\"</a>" + comma + "</span>";
-			}
-			if (isArray) {
-				return GetRow(indent,str);
-			} else {
-				return str;
-			}
+			return convertUrl(content,comma,indent,isArray)
 		} else {
 			return FormatLiteral(obj,"\"",comma,indent,isArray,"String");
 		}
 	} else {
 		return FormatLiteral(obj,"\"",comma,indent,isArray,"String");
+	}
+}
+
+function convertUrl(input,comma,indent,isArray){
+	// 正则匹配 URL（以 http 或 https 开头的链接）
+	var urlRegex = /https?:\/\/[^\s"<>]+(?:jpg|png|gif|bmp|jpeg|ico)/gi; // 匹配以 jpg, png 或 gif 结尾的图片链接
+
+	isImge = false;
+	// 替换 URL 部分为 <a> 或 <img> 包裹的内容
+	var output = input.replace(/(https?:\/\/[^\s"<>]+)/g, function (match) {
+		if (/\.(jpg|png|gif|bmp|jpeg|ico)$/i.test(match)) {
+			isImge = true;
+			return "<image class='image' src='" + match + "' />";
+		} else {
+			return "<a target='_blank' href='" + match + "'>" + match + "</a>";
+		}
+	});
+
+	output = "<span class='href'>\""+output +"\"" + comma + "</span>";
+
+	if (isArray) {
+		return GetRow(indent,output);
+	} else {
+		return output;
 	}
 }
 
