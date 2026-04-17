@@ -23,7 +23,7 @@ window.onload = function () {
 	}
 	s = decodeURIComponent(s)
 	$id("json_input").value = s;
-	loadSchemesFromCookie();
+	loadSchemesFromStorage();
 }
 
 
@@ -583,38 +583,26 @@ function LinkToJson() {
 // 展示方案管理
 var schemes = [];
 
-// Cookie操作函数
-function setCookie(name, value, days) {
-	var expires = "";
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-		expires = "; expires=" + date.toUTCString();
-	}
-	document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + expires + "; path=/";
+// localStorage操作函数
+function setStorage(name, value) {
+	localStorage.setItem(name, JSON.stringify(value));
 }
 
-function getCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-		if (c.indexOf(nameEQ) == 0) {
-			var val = decodeURIComponent(c.substring(nameEQ.length, c.length));
-			try {
-				return JSON.parse(val);
-			} catch (e) {
-				return null;
-			}
+function getStorage(name) {
+	var val = localStorage.getItem(name);
+	if (val) {
+		try {
+			return JSON.parse(val);
+		} catch (e) {
+			return null;
 		}
 	}
 	return null;
 }
 
 // 加载方案
-function loadSchemesFromCookie() {
-	var saved = getCookie('jsonSchemes');
+function loadSchemesFromStorage() {
+	var saved = getStorage('jsonSchemes');
 	if (saved && Array.isArray(saved)) {
 		schemes = saved;
 	} else {
@@ -644,7 +632,7 @@ function openSchemeEditor() {
 
 // 关闭编辑弹窗
 function closeSchemeEditor() {
-	setCookie('jsonSchemes', schemes, 365);
+	setStorage('jsonSchemes', schemes);
 	updateSchemeSelect();
 	document.getElementById('schemeModal').style.display = 'none';
 	editRowIndex = -1;
@@ -721,7 +709,7 @@ function saveNewRow() {
 	}
 	schemes.push({name: name, keyfield: keyfield, showfield: showfield, unshowfield: unshowfield, priority: priority});
 	editRowIndex = -1;
-	setCookie('jsonSchemes', schemes, null);
+	setStorage('jsonSchemes', schemes);
 	updateSchemeSelect();
 	renderSchemeList();
 }
@@ -751,7 +739,7 @@ function saveRowEdit(index) {
 	}
 	schemes[index] = {name: name, keyfield: keyfield, showfield: showfield, unshowfield: unshowfield, priority: priority};
 	editRowIndex = -1;
-	setCookie('jsonSchemes', schemes, null);
+	setStorage('jsonSchemes', schemes);
 	updateSchemeSelect();
 	renderSchemeList();
 }
@@ -763,7 +751,7 @@ function deleteScheme(index) {
 			editRowIndex = -1;
 		}
 		schemes.splice(index, 1);
-		setCookie('jsonSchemes', schemes, null);
+		setStorage('jsonSchemes', schemes);
 		updateSchemeSelect();
 		renderSchemeList();
 	}
@@ -771,7 +759,7 @@ function deleteScheme(index) {
 
 // 保存并关闭
 function saveAndClose() {
-	setCookie('jsonSchemes', schemes, null);
+	setStorage('jsonSchemes', schemes);
 	updateSchemeSelect();
 	closeSchemeEditor();
 }
