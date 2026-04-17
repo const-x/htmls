@@ -253,6 +253,10 @@ input.text:focus,input.title:focus,textarea:focus,select:focus {
 	border-bottom: 1px solid #ddd;
 }
 
+.scheme-list-table td.keyfield {
+	color: #ff8000;
+}
+
 .scheme-list-table td.fields {
 	color: #007777;
 }
@@ -262,7 +266,7 @@ input.text:focus,input.title:focus,textarea:focus,select:focus {
 }
 
 .scheme-list-table td.priority {
-	width: 40px;
+	width: 60px;
 	text-align: center;
 	color: #666;
 }
