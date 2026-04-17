@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b753bf40-e684-4ac5-b170-c6d485826c52" name="Changes" comment="README.MD">
+      <change beforePath="$PROJECT_DIR$/json/JSONFormater.htm" beforeDir="false" afterPath="$PROJECT_DIR$/json/JSONFormater.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/c.js" beforeDir="false" afterPath="$PROJECT_DIR$/json/c.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/screen.css" beforeDir="false" afterPath="$PROJECT_DIR$/json/screen.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;const-x&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/const-x/htmls.git&quot;,
+    &quot;accountId&quot;: &quot;d63891af-2a34-4f52-9741-cea117ce28f2&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2PJuYq9bQhPBl1oAzZEgJVIZ83G" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/xieyalong/workspace/idv/htmls",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/readme_img" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b753bf40-e684-4ac5-b170-c6d485826c52" name="Changes" comment="" />
+      <created>1683187555294</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1683187555294</updated>
+      <workItem from="1683187556736" duration="1253000" />
+      <workItem from="1683258830266" duration="644000" />
+      <workItem from="1683269359260" duration="410000" />
+      <workItem from="1683271627098" duration="312000" />
+      <workItem from="1683353938843" duration="1260000" />
+      <workItem from="1683509348580" duration="57000" />
+      <workItem from="1683688930583" duration="1152000" />
+      <workItem from="1683769496355" duration="1396000" />
+      <workItem from="1685069565861" duration="628000" />
+      <workItem from="1685504852835" duration="830000" />
+      <workItem from="1689820468857" duration="39000" />
+      <workItem from="1693972758323" duration="685000" />
+      <workItem from="1697684068270" duration="1373000" />
+      <workItem from="1699329033431" duration="140000" />
+      <workItem from="1699335530847" duration="420000" />
+      <workItem from="1699335963067" duration="357000" />
+      <workItem from="1699336982323" duration="1192000" />
+      <workItem from="1699357531735" duration="1606000" />
+      <workItem from="1699359326648" duration="1196000" />
+      <workItem from="1699360901323" duration="1296000" />
+      <workItem from="1724229412391" duration="5319000" />
+      <workItem from="1724234879029" duration="1392000" />
+      <workItem from="1776308277236" duration="160000" />
+      <workItem from="1776391661634" duration="3841000" />
+    </task>
+    <task id="LOCAL-00001" summary="JSON格式化工具">
+      <created>1683187610946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683187610946</updated>
+    </task>
+    <task id="LOCAL-00002" summary="markdown">
+      <created>1683188926187</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683188926188</updated>
+    </task>
+    <task id="LOCAL-00003" summary="json 支持打开页面时传入">
+      <created>1683771007868</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683771007868</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修复滤空问题">
+      <created>1697702788650</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697702788650</updated>
+    </task>
+    <task id="LOCAL-00005" summary="修复滤空问题">
+      <created>1699336305267</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699336305267</updated>
+    </task>
+    <task id="LOCAL-00006" summary="修复滤空问题">
+      <created>1699337099348</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699337099348</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修复滤空问题">
+      <created>1699357565013</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699357565013</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修复滤空问题">
+      <created>1699357669089</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699357669089</updated>
+    </task>
+    <task id="LOCAL-00009" summary="修复滤空问题">
+      <created>1699357986282</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699357986282</updated>
+    </task>
+    <task id="LOCAL-00010" summary="修复滤空问题">
+      <created>1699360713005</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699360713006</updated>
+    </task>
+    <task id="LOCAL-00011" summary="修复滤空问题">
+      <created>1724230481781</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724230481781</updated>
+    </task>
+    <task id="LOCAL-00012" summary="README.MD">
+      <created>1724234219592</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724234219592</updated>
+    </task>
+    <task id="LOCAL-00013" summary="README.MD">
+      <created>1724234486751</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724234486751</updated>
+    </task>
+    <task id="LOCAL-00014" summary="README.MD">
+      <created>1724234613270</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1724234613270</updated>
+    </task>
+    <task id="LOCAL-00015" summary="README.MD">
+      <created>1724235095245</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1724235095247</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="JSON格式化工具" />
+    <MESSAGE value="markdown" />
+    <MESSAGE value="json 支持打开页面时传入" />
+    <MESSAGE value="修复滤空问题" />
+    <MESSAGE value="README.MD" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.MD" />
+  </component>
+</project>

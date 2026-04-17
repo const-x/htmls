@@ -23,6 +23,7 @@ window.onload = function () {
 	}
 	s = decodeURIComponent(s)
 	$id("json_input").value = s;
+	loadSchemesFromCookie();
 }
 
 
@@ -552,9 +553,22 @@ function ConvertStr2Json() {
 }
 
 
-function  showfieldChanged(){
+function showfieldChanged() {
 	var val = $id("showfieldselect").value;
-	$id("showfield").value = val;
+	if (!val) {
+		$id("showfield").value = '';
+		$id("unShowfield").value = '';
+		$id("showFrist").checked = false;
+		return;
+	}
+	try {
+		var data = JSON.parse(val);
+		$id("showfield").value = data.showfield || '';
+		$id("unShowfield").value = data.unshowfield || '';
+		$id("showFrist").checked = data.priority || false;
+	} catch (e) {
+		$id("showfield").value = val;
+	}
 }
 
 function LinkToJson() {
@@ -562,4 +576,187 @@ function LinkToJson() {
 	val = escape(val.split('/n').join(' ').split('/r').join(' '));
 	$id("InvisibleLinkUrl").value = val;
 	$id("InvisibleLink").submit();
+}
+
+// 展示方案管理
+var schemes = [];
+
+// Cookie操作函数
+function setCookie(name, value, days) {
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + encodeURIComponent(JSON.stringify(value)) + expires + "; path=/";
+}
+
+function getCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i];
+		while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+		if (c.indexOf(nameEQ) == 0) {
+			var val = decodeURIComponent(c.substring(nameEQ.length, c.length));
+			try {
+				return JSON.parse(val);
+			} catch (e) {
+				return null;
+			}
+		}
+	}
+	return null;
+}
+
+// 加载方案
+function loadSchemesFromCookie() {
+	var saved = getCookie('jsonSchemes');
+	if (saved && Array.isArray(saved)) {
+		schemes = saved;
+	} else {
+		schemes = [{name: '简要信息', showfield: 'id name', unshowfield: '', priority: false}];
+	}
+	updateSchemeSelect();
+}
+
+// 更新下拉框
+function updateSchemeSelect() {
+	var select = document.getElementById('showfieldselect');
+	select.innerHTML = '<option value="">展示方案</option>';
+	schemes.forEach(function(scheme) {
+		var opt = document.createElement('option');
+		opt.value = JSON.stringify({showfield: scheme.showfield, unshowfield: scheme.unshowfield, priority: scheme.priority});
+		opt.textContent = scheme.name;
+		select.appendChild(opt);
+	});
+}
+
+// 打开编辑弹窗
+function openSchemeEditor() {
+	document.getElementById('schemeModal').style.display = 'block';
+	editRowIndex = -1;
+	renderSchemeList();
+}
+
+// 关闭编辑弹窗
+function closeSchemeEditor() {
+	document.getElementById('schemeModal').style.display = 'none';
+	editRowIndex = -1;
+}
+
+var editRowIndex = -1; // 当前编辑的方案索引，-2表示新增行
+
+// 渲染方案列表
+function renderSchemeList() {
+	var list = document.getElementById('schemeList');
+	var html = '<table class="scheme-list-table">';
+	html += '<tr><th>方案名</th><th>展示字段</th><th>隐藏字段</th><th>展示优先</th><th>操作</th></tr>';
+
+	schemes.forEach(function(scheme, index) {
+		if (editRowIndex === index) {
+			// 编辑模式：显示输入框
+			html += '<tr class="edit-row">';
+			html += '<td><input type="text" id="editName' + index + '" value="' + scheme.name + '" style="width:120px;"></td>';
+			html += '<td><input type="text" id="editShowfield' + index + '" value="' + (scheme.showfield || '') + '" style="width:200px;"></td>';
+			html += '<td><input type="text" id="editUnshowfield' + index + '" value="' + (scheme.unshowfield || '') + '" style="width:200px;"></td>';
+			html += '<td><input type="checkbox" id="editPriority' + index + '"' + (scheme.priority ? ' checked' : '') + '></td>';
+			html += '<td class="action"><input type="button" value="保存" style="margin-top:4px;" onclick="saveRowEdit(' + index + ')"> <input type="button" value="取消" style="margin-top:4px;" onclick="cancelRowEdit()"></td>';
+			html += '</tr>';
+		} else {
+			// 显示模式
+			html += '<tr>';
+			html += '<td>' + scheme.name + '</td>';
+			html += '<td class="fields">' + (scheme.showfield || '') + '</td>';
+			html += '<td class="unshow">' + (scheme.unshowfield || '') + '</td>';
+			html += '<td class="priority">' + (scheme.priority ? '是' : '-') + '</td>';
+			html += '<td class="action"><input type="button" value="编辑" style="margin-top:4px;" onclick="startRowEdit(' + index + ')"> <input type="button" value="删除" style="margin-top:4px;" onclick="deleteScheme(' + index + ')"></td>';
+			html += '</tr>';
+		}
+	});
+
+	// 新增行
+	if (editRowIndex === -2) {
+		html += '<tr class="edit-row new-row">';
+		html += '<td><input type="text" id="newName" value="" style="width:120px;" placeholder="方案名称"></td>';
+		html += '<td><input type="text" id="newShowfield" value="" style="width:200px;" placeholder="展示字段"></td>';
+		html += '<td><input type="text" id="newUnshowfield" value="" style="width:200px;" placeholder="隐藏字段"></td>';
+		html += '<td><input type="checkbox" id="newPriority"></td>';
+		html += '<td class="action"><input type="button" value="添加" style="margin-top:4px;" onclick="saveNewRow()"> <input type="button" value="取消" style="margin-top:4px;" onclick="cancelRowEdit()"></td>';
+		html += '</tr>';
+	} else {
+		html += '<tr class="new-row">';
+		html += '<td colspan="5" style="text-align:center; color:#666; cursor:pointer;" onclick="startNewRow()">+ 点击新增方案</td>';
+		html += '</tr>';
+	}
+
+	html += '</table>';
+	list.innerHTML = html;
+}
+
+// 开始新增行编辑
+function startNewRow() {
+	editRowIndex = -2;
+	renderSchemeList();
+}
+
+// 保存新增行
+function saveNewRow() {
+	var name = document.getElementById('newName').value.trim();
+	var showfield = document.getElementById('newShowfield').value.trim();
+	var unshowfield = document.getElementById('newUnshowfield').value.trim();
+	var priority = document.getElementById('newPriority').checked;
+	if (!name) {
+		alert('请输入方案名称');
+		return;
+	}
+	schemes.push({name: name, showfield: showfield, unshowfield: unshowfield, priority: priority});
+	editRowIndex = -1;
+	renderSchemeList();
+}
+
+// 开始行编辑
+function startRowEdit(index) {
+	editRowIndex = index;
+	renderSchemeList();
+}
+
+// 取消行编辑
+function cancelRowEdit() {
+	editRowIndex = -1;
+	renderSchemeList();
+}
+
+// 保存行编辑
+function saveRowEdit(index) {
+	var name = document.getElementById('editName' + index).value.trim();
+	var showfield = document.getElementById('editShowfield' + index).value.trim();
+	var unshowfield = document.getElementById('editUnshowfield' + index).value.trim();
+	var priority = document.getElementById('editPriority' + index).checked;
+	if (!name) {
+		alert('请输入方案名称');
+		return;
+	}
+	schemes[index] = {name: name, showfield: showfield, unshowfield: unshowfield, priority: priority};
+	editRowIndex = -1;
+	renderSchemeList();
+}
+
+// 删除方案
+function deleteScheme(index) {
+	if (confirm('确定删除该方案吗？')) {
+		if (editRowIndex === index) {
+			editRowIndex = -1;
+		}
+		schemes.splice(index, 1);
+		renderSchemeList();
+	}
+}
+
+// 保存并关闭
+function saveAndClose() {
+	setCookie('jsonSchemes', schemes, 365);
+	updateSchemeSelect();
+	closeSchemeEditor();
 }

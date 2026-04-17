@@ -84,13 +84,14 @@
 
 		<span>
 			<label for="keyfield"> 关键字段 <input id="keyfield" style="width: 80px"></label>
-			<label for="showfield"> 展示 <input id="showfield">
-				<select style="width: 35px;" id="showfieldselect" onchange="showfieldChanged()">
-					<option value="">展示方案</option>
-					<option value="id name">简要信息</option>
-			</label>
+			<label for="showfield"> 展示 <input id="showfield"></label>
 			<label for="showFrist"> <input type="checkbox" id="showFrist" onclick="ShowFristClicked()">优先</label>
 			<label for="unShowfield"> 隐藏 <input id="unShowfield"></label>
+
+			<select style="width: 80px;" id="showfieldselect" onchange="showfieldChanged()">
+					<option value="">展示方案</option>
+				</select>
+			<input value="编辑" type="button" style="margin-top: 4px;" onclick="javascript: openSchemeEditor() ">
 
 			<label for="filterfield"> 值过滤<input id="filterfield"></label>
 			<label for="ctFilter"> <input type="checkbox" id="ctFilter" onclick="javascript: Process();">反向</label>&nbsp;
@@ -109,6 +110,17 @@
 
 </div>
 
+
+<!-- 展示方案编辑弹窗 -->
+<div id="schemeModal" class="scheme-modal" style="display:none;">
+	<div class="scheme-modal-content">
+		<h3 class="scheme-modal-title">编辑展示方案</h3>
+		<div id="schemeList" class="scheme-list-container"></div>
+		<div class="scheme-buttons">
+			<input type="button" value="关闭" style="margin-top:4px;" onclick="closeSchemeEditor()">
+		</div>
+	</div>
+</div>
 
 </body>
 <script type="text/javascript" event="onkeydown" for="document">

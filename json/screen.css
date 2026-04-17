@@ -173,3 +173,134 @@ input.text:focus,input.title:focus,textarea:focus,select:focus {
 .light {
 	color: #AAA;
 }
+
+/* 展示方案编辑弹窗 */
+.scheme-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+}
+
+.scheme-modal-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #ECECEC;
+	padding: 15px;
+	border: 1px solid #CECECE;
+	min-width: 1200px;
+	max-width: 95vw;
+	max-height: 90vh;
+	overflow-y: auto;
+}
+
+.scheme-modal-title {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+}
+
+.scheme-form-row {
+	margin-bottom: 10px;
+	white-space: nowrap;
+}
+
+.scheme-form-row label {
+	font-weight: 700;
+}
+
+.scheme-form-row input[type="text"] {
+	width: 100px;
+	border: 1px solid #ccc;
+	background: #f6f6f6;
+}
+
+.scheme-form-row input[type="text"].wide {
+	width: 150px;
+}
+
+.scheme-form-row input[type="checkbox"] {
+	vertical-align: middle;
+}
+
+.scheme-list-container {
+	max-height: 300px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	background: #fff;
+	margin-bottom: 10px;
+}
+
+.scheme-list-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.scheme-list-table th {
+	padding: 6px;
+	text-align: left;
+	border-bottom: 1px solid #CECECE;
+	font-weight: 700;
+	background: #ECECEC;
+}
+
+.scheme-list-table td {
+	padding: 6px;
+	border-bottom: 1px solid #ddd;
+}
+
+.scheme-list-table td.fields {
+	color: #007777;
+}
+
+.scheme-list-table td.unshow {
+	color: #be5d4f;
+}
+
+.scheme-list-table td.priority {
+	width: 40px;
+	text-align: center;
+	color: #666;
+}
+
+.scheme-list-table td.action {
+	width: 110px;
+	text-align: center;
+}
+
+.scheme-list-table tr.edit-row {
+	background: #fffbe6;
+}
+
+.scheme-list-table tr.edit-row input[type="text"],
+.scheme-list-table tr.edit-row input[type="checkbox"] {
+	border: 1px solid #aaa;
+	background: #fff;
+}
+
+.scheme-list-table tr.new-row {
+	background: #f5f5f5;
+}
+
+.scheme-list-table tr.new-row td:hover {
+	background: #e8e8e8;
+}
+
+.scheme-empty {
+	padding: 10px;
+	color: #666;
+	font-style: italic;
+}
+
+.scheme-buttons {
+	text-align: right;
+}
+
+.scheme-buttons input,
+.scheme-form-row input[type="button"] {
+	margin-top: 4px;
+}
