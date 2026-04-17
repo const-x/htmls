@@ -721,6 +721,8 @@ function saveNewRow() {
 	}
 	schemes.push({name: name, keyfield: keyfield, showfield: showfield, unshowfield: unshowfield, priority: priority});
 	editRowIndex = -1;
+	setCookie('jsonSchemes', schemes, null);
+	updateSchemeSelect();
 	renderSchemeList();
 }
 
@@ -749,6 +751,8 @@ function saveRowEdit(index) {
 	}
 	schemes[index] = {name: name, keyfield: keyfield, showfield: showfield, unshowfield: unshowfield, priority: priority};
 	editRowIndex = -1;
+	setCookie('jsonSchemes', schemes, null);
+	updateSchemeSelect();
 	renderSchemeList();
 }
 
@@ -759,13 +763,15 @@ function deleteScheme(index) {
 			editRowIndex = -1;
 		}
 		schemes.splice(index, 1);
+		setCookie('jsonSchemes', schemes, null);
+		updateSchemeSelect();
 		renderSchemeList();
 	}
 }
 
 // 保存并关闭
 function saveAndClose() {
-	setCookie('jsonSchemes', schemes, 365);
+	setCookie('jsonSchemes', schemes, null);
 	updateSchemeSelect();
 	closeSchemeEditor();
 }
